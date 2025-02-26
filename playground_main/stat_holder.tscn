@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://jmtn74jigaty"]
+[gd_scene load_steps=5 format=3 uid="uid://jmtn74jigaty"]
 
 [ext_resource type="Script" path="res://stat_holder.gd" id="1_fxn1d"]
+[ext_resource type="Texture2D" uid="uid://ct57guyg58cma" path="res://icon.svg" id="2_a5kb7"]
+[ext_resource type="Shader" uid="uid://c1ropng4r01si" path="res://stat_holder.tres" id="3_5ayc1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yx1of"]
+shader = ExtResource("3_5ayc1")
 
 [node name="StatHolder" type="Node"]
 script = ExtResource("1_fxn1d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(407, 193)
+texture = ExtResource("2_a5kb7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yx1of")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
