@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2hjcxpuffxh5"]
+
+[ext_resource type="Script" path="res://mover.gd" id="1_jlwo6"]
+[ext_resource type="Script" path="res://mover_control.gd" id="1_kjqqm"]
+[ext_resource type="Texture2D" uid="uid://ct57guyg58cma" path="res://icon.svg" id="3_w4ql6"]
+
+[sub_resource type="Gradient" id="Gradient_rass0"]
+offsets = PackedFloat32Array(0.132723, 0.265446)
+colors = PackedColorArray(0, 1, 1, 1, 0, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lbj28"]
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nqhdg"]
+width = 2048
+height = 2048
+color_ramp = SubResource("Gradient_rass0")
+noise = SubResource("FastNoiseLite_lbj28")
+
+[sub_resource type="Gradient" id="Gradient_xtjkj"]
+offsets = PackedFloat32Array(0.787185, 0.819222)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uwubp"]
+gradient = SubResource("Gradient_xtjkj")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[node name="Node" type="Node" node_paths=PackedStringArray("label", "mover_1", "mover_2", "mover_3")]
+script = ExtResource("1_kjqqm")
+label = NodePath("Layer_UI/Label")
+mover_1 = NodePath("Layer_BG/Cam_1")
+mover_2 = NodePath("")
+mover_3 = NodePath("")
+
+[node name="Layer_BG" type="CanvasLayer" parent="."]
+layer = -1
+offset = Vector2(9.53, -3.305)
+transform = Transform2D(1, 0, 0, 1, 9.53, -3.305)
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer_BG"]
+texture = SubResource("NoiseTexture2D_nqhdg")
+
+[node name="Cam_1" type="Camera2D" parent="Layer_BG"]
+script = ExtResource("1_jlwo6")
+speed = 100.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = SubResource("GradientTexture2D_uwubp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
+position = Vector2(-257, -108)
+texture = SubResource("GradientTexture2D_uwubp")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D"]
+position = Vector2(-253, 110)
+texture = SubResource("GradientTexture2D_uwubp")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D"]
+position = Vector2(324, 134)
+texture = SubResource("GradientTexture2D_uwubp")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Node2D"]
+position = Vector2(315, -116)
+texture = SubResource("GradientTexture2D_uwubp")
+
+[node name="Layer_UI" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Layer_UI"]
+position = Vector2(-479, -235)
+texture = ExtResource("3_w4ql6")
+
+[node name="Label" type="Label" parent="Layer_UI"]
+offset_left = -8.0
+offset_top = -290.0
+offset_right = 32.0
+offset_bottom = -267.0

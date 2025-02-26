@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca06s63qxmx65"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gpcok"]
+font_size = 64
+
+[node name="Node" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="AspectRatioContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "哎哎，为何你的秘密不删"
+label_settings = SubResource("LabelSettings_gpcok")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+text_overrun_behavior = 3
